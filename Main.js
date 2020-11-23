@@ -1,17 +1,30 @@
 let fallingWords = document.getElementById('fallingWords')
 let wordInput = document.getElementById('word-input')
 let fallingSingleWord = document.getElementsByClassName("falling")
-let buttonStart = document.querySelector("button")
+let buttonStart = document.querySelector(".wrapper button")
+let buttonAbout = document.querySelector(".wrapper3 button")
+let buttonMenu = document.querySelector(".wrapper4 button")
 
 let homePage = document.querySelector('.home')
 let gamePage = document.querySelector('#game')
-
+let borderRgb = document.querySelector('.block')
+let about = document.querySelector('.about')
 
 function showGame () {
   homePage.style.visibility = "hidden";
   gamePage.style.visibility = "visible";
+  borderRgb.style.visibility = "hidden";
 }
 
+function showAbout () {
+  homePage.style.visibility = "hidden";
+  about.style.visibility = "visible";
+}
+
+function showMenu () {
+  about.style.visibility ="hidden";
+  homePage.style.visibility ="visible";
+}
 
 
 
@@ -32,6 +45,7 @@ const wordsList = [
   'nutrition',
   'revolver',
   'echo',
+  'bobby',
   'siblings',
   'investigate',
   'horrendous',
@@ -53,7 +67,7 @@ const colors = [
 
 function generateWord () {
   const randomPx = Math.floor(Math.random() * 700) + 10
-  const randomSize = Math.floor(Math.random() * 4) + 1  
+  const randomSize = Math.floor(Math.random() * 5) + 2  
   const randomElement = wordsList[Math.floor(Math.random() * wordsList.length)];
   const randomColor = colors[Math.floor(Math.random() * colors.length)];
   fallingWords.innerHTML += `<h2 class="falling" style="left: ${randomPx}px; font-size: ${randomSize}em; color: ${randomColor};">${randomElement}</h2>`
@@ -61,11 +75,11 @@ function generateWord () {
 
 
 
+
 function matchWords() {
   
   if (wordInput.value === fallingWords.querySelector(".falling").textContent) {
     console.log('Correct!!!');
-    
     fallingWords.removeChild(fallingWords.firstElementChild)
     generateWord()
     wordInput.value = ""
@@ -99,7 +113,13 @@ buttonStart.addEventListener('click', () => {
   generateWord()
 })
 
+buttonAbout.addEventListener('click', () => {
+  showAbout();
+})
 
+buttonMenu.addEventListener('click', () => {
+  showMenu();
+})
 
 
 function removeWord () {
