@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+#game {
+  width: 1000px;
+  height: 500px;
+  border: 2px solid black;
+  margin: 100px auto;
+}
+
+#word-input {
+  position: relative;
+  top: 510px;
+  left: 400px;
+  width: 250px;
+  text-align: center;
+}
+
+#falling {
+  position: relative;
+  left: 400px;
+
+  animation-name: fallingTop;
+  animation-duration: 8s;
+  animation-direction: normal;
+}
+
+@keyframes fallingTop {
+  0% {
+    top: -40px;
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 400px;
+    opacity: 0;
+  }
+}
