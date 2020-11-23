@@ -1,28 +1,5 @@
-let words = document.getElementById('falling')
-let inputWord = document.getElementById('word-input')
-
-console.log(words.textContent)
-console.log(inputWord.value)
-
-
-function matchWords() {
-    if (inputWord.value === words.textContent) {
-      console.log('Correct!!!');
-      words.remove()
-      inputWord.value = ""
-      
-    } else {
-      console.log("Wrong")
-    }
-  }
-
-  inputWord.addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-   matchWords()
-    }
-});
-
-
+let fallingWords = document.getElementById('fallingWords')
+let wordInput = document.getElementById('word-input')
 
 const wordsList = [
   'hat',
@@ -52,12 +29,60 @@ const wordsList = [
   'definition'
 ];
 
+const animClasses = [
+  'falling-middle',
+  'falling-far-left',
+  'falling-far-right'
+];
 
-function generateWord (array) {
-  const randomElement = array[Math.floor(Math.random() * array.length)];
-  return randomElement
+function generateWord () {
+  const randomElement = wordsList[Math.floor(Math.random() * wordsList.length)];
+  const randomAnimation = animClasses [Math.floor(Math.random() * animClasses.length)];
+  fallingWords.innerHTML = `<h2 class="falling-middle">${randomElement}</h2>`
 }
 
-console.log(generateWord(wordsList))
 
+function matchWords() {
+  if (wordInput.value === fallingWords.querySelector(".falling-middle").textContent) {
+    console.log('Correct!!!');
+    generateWord()
+    wordInput.value = ""
+  } 
   
+  else {
+    wordInput.value = ""
+    console.log("Wrong")
+  }
+}
+
+
+wordInput.addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') {
+ matchWords()
+  }
+});
+
+
+generateWord()
+
+
+// function removeWord () {
+//   fallingWords.textContent= ""
+//   inputWord.value = ""
+// }
+
+
+ 
+
+
+
+
+
+
+
+
+// function addWordToHtml () {
+//   generateWord();
+//   console.log(randomElement)
+// }
+

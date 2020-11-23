@@ -17,10 +17,28 @@
   text-align: center;
 }
 
-#falling {
+.falling-middle {
   position: relative;
   left: 400px;
+  color: red;
+  animation-name: fallingTop;
+  animation-duration: 8s;
+  animation-direction: normal;
+}
 
+.falling-far-left {
+  position: relative;
+  left: 400px;
+  color: green;
+  animation-name: fallingTop;
+  animation-duration: 8s;
+  animation-direction: normal;
+}
+
+.falling-far-right {
+  position: relative;
+  left: 400px;
+  color: blue;
   animation-name: fallingTop;
   animation-duration: 8s;
   animation-direction: normal;
@@ -37,7 +55,7 @@
   }
 
   100% {
-    top: 400px;
+    top: 430px;
     opacity: 0;
   }
 }
