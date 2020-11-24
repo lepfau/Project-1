@@ -4,7 +4,10 @@ let fallingSingleWord = document.getElementsByClassName("falling")
 let buttonStart = document.querySelector(".wrapper button")
 let buttonAbout = document.querySelector(".wrapper3 button")
 let buttonMenu = document.querySelector(".wrapper4 button")
-let buttonMedium = document.querySelector(".wrapper5 button")
+let buttonEasy = document.querySelector(".wrapper5 button")
+let buttonMedium = document.querySelector(".wrapper6 button")
+let buttonHard = document.querySelector(".wrapper7 button")
+let buttonBack = document.querySelector(".wrapper10 button")
 let score = document.querySelector(".scoreSpan")
 
 let difficulty = document.querySelector('.difficulty')
@@ -18,6 +21,7 @@ let totalTime;
 
 function setTimer () {
   window.alert("GAME OVER !")
+  location.reload()
 }
 
 function clear () {
@@ -26,9 +30,8 @@ function clear () {
 
 
 function showGame () {
-  homePage.style.visibility = "hidden";
+  difficulty.style.visibility = "hidden";
   gamePage.style.visibility = "visible";
-  borderRgb.style.visibility = "hidden";
 }
 
 function showAbout () {
@@ -41,15 +44,26 @@ function showMenu () {
   homePage.style.visibility ="visible";
 }
 
+function goBack () {
+  difficulty.style.visibility = "hidden";
+  homePage.style.visibility = "visible";
+}
+
+function showDifficulty() {
+  homePage.style.visibility = "hidden";
+  difficulty.style.visibility = "visible"
+}
+
 function addScore () {
   
 score.textContent = Number(score.textContent) + 50
 }
 
 function removeScore () {
-  score.textContent = Number(score.textContent) - 10
+  score.textContent = Number(score.textContent) - 100
 }
 
+//ARRAYS WORDS SENTENCES 
 
 const wordsList = [
   'hat',
@@ -81,7 +95,7 @@ const wordsList = [
 ];
 
 const sentences = [
-  'Love For All, Hatred For None',
+  'Love for all, hatred for none',
   'Change the world by being yourself.',
   'Every moment is a fresh beginning.',
   'Never regret anything that made you smile.',
@@ -99,28 +113,29 @@ const sentences = [
 const colors = [
   'blue',
   'red',
-  'green'
+  'green',
+  'pink',
+  'yellow'
 ];
 
 
-
 function generateWord () {
-  const randomPx = Math.floor(Math.random() * 700) + 10
+  const randomPx = Math.floor(Math.random() * 600) + 10
   const randomSize = Math.floor(Math.random() * 5) + 2  
   const randomElement = wordsList[Math.floor(Math.random() * wordsList.length)];
   const randomColor = colors[Math.floor(Math.random() * colors.length)];
   fallingWords.innerHTML += `<h2 class="falling" style="left: ${randomPx}px; font-size: ${randomSize}em; color: ${randomColor};">${randomElement}</h2>`
-  timer = setTimeout (setTimer, 5000)
+timer = setTimeout (setTimer, 5000)
 }
 
 
 function generateSentence () {
-  const randomPx = Math.floor(Math.random() * 700) + 10
-  const randomSize = Math.floor(Math.random() * 5) + 2  
+  const randomPx = Math.floor(Math.random() * 200) + 10
+  const randomSize = Math.floor(Math.random() * 2) + 1.5  
   const randomElement = sentences[Math.floor(Math.random() * sentences.length)];
   const randomColor = colors[Math.floor(Math.random() * colors.length)];
   fallingWords.innerHTML += `<h2 class="fallingSentence" style="left: ${randomPx}px; font-size: ${randomSize}em; color: ${randomColor};">${randomElement}</h2>`
-  timer = setTimeout (setTimer, 10000)
+  timer = setTimeout (setTimer, 12000)
 }
 
 
@@ -144,7 +159,6 @@ function matchWords() {
       addScore();
     
     }
-    
   } 
   
   else {
@@ -154,6 +168,7 @@ function matchWords() {
   }
 }
 
+//INPUT AND BUTTONS ACTION
 
 wordInput.addEventListener('keypress', function (e) {
   if (e.key === 'Enter') {
@@ -161,7 +176,13 @@ wordInput.addEventListener('keypress', function (e) {
   }
 });
 
+
 buttonStart.addEventListener('click', () => {
+  showDifficulty()
+})
+
+
+buttonEasy.addEventListener('click', () => {
   showGame();
   generateWord()
 })
@@ -171,12 +192,17 @@ buttonMedium.addEventListener('click', () => {
   generateSentence()
 })
 
+
 buttonAbout.addEventListener('click', () => {
   showAbout();
 })
 
 buttonMenu.addEventListener('click', () => {
-  showMenu();
+  location.reload();
+})
+
+buttonBack.addEventListener('click', () => {
+  location.reload();
 })
 
 

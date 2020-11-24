@@ -1,48 +1,42 @@
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
   background-color: black;
 }
 #game {
-  position: absolute;
+  position: relative;
   width: 1000px;
   height: 500px;
-  left: 280px;
-  border: 2px solid black;
+  bottom: 600px;
+  border: 5px solid black;
   margin: 100px auto;
   background-color: purple;
-  visibility: hidden;
-}
-
-.about {
-  position: absolute;
-  width: 1000px;
-  height: 500px;
-  left: 0px;
-  top: -102px;
-  border: 2px solid black;
-  margin: 100px auto;
-  background-color: red;
   visibility: hidden;
 }
 
 #word-input {
   position: relative;
   top: 510px;
-  left: 400px;
+  left: 300px;
   width: 400px;
   height: 50px;
   text-align: center;
   font-size: 2em;
-  background-color: purple;
+  background-color: yellow;
+}
+
+#fallingWords {
+  width: 1000px;
 }
 
 .falling {
   position: relative;
-  left: 400px;
-  color: white;
+  margin: 0;
+  padding: 0;
   animation: fallingTop 5s linear;
   animation-fill-mode: forwards;
 }
@@ -50,8 +44,7 @@ body {
 .fallingSentence {
   position: relative;
   left: 400px;
-  color: white;
-  animation: fallingTop 10s linear;
+  animation: fallingTop 12s linear;
   animation-fill-mode: forwards;
 }
 
@@ -61,91 +54,57 @@ body {
   }
 
   90% {
-    top: 380px;
+    top: 350px;
     opacity: 1;
   }
 
   100% {
-    top: 390px;
+    top: 350px;
     opacity: 0;
     color: black;
   }
 }
 
-.home {
+.score h2 {
+  position: relative;
+  color: red;
+  left: 850px;
+  bottom: 20px;
+}
+
+.about {
   position: absolute;
-  left: 280px;
-  background-color: red;
-  z-index: 2;
   width: 1000px;
   height: 500px;
+  left: 289px;
+  bottom: 70px;
   border: 2px solid black;
   margin: 100px auto;
-  background-color: black;
+  background-color: purple;
+  visibility: hidden;
+}
+
+.home {
+  position: relative;
+
+  width: 1000px;
+  height: 500px;
+  border: 2px solid geen;
+  margin: 100px auto;
+  background-color: purple;
   visibility: visible;
 }
 
 .home img {
   position: relative;
   font-size: 5em;
-  height: 530px;
+  height: 537px;
   width: 900px;
   left: 0px;
   text-align: center;
   color: blue;
-}
-
-.block {
-  position: absolute;
-  bottom: 162px;
-  left: 275px;
-  z-index: 0;
-  margin: 300px auto 0;
-  width: 1010px;
-  height: 510px;
-  background: linear-gradient(0deg, #000, #272727);
-}
-
-.block:before,
-.block:after {
-  content: "";
-  position: absolute;
-  left: -2px;
-  top: -2px;
-  background: linear-gradient(
-    45deg,
-    #fb0094,
-    #0000ff,
-    #00ff00,
-    #ffff00,
-    #ff0000,
-    #fb0094,
-    #0000ff,
-    #00ff00,
-    #ffff00,
-    #ff0000
-  );
-  background-size: 400%;
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  z-index: -1;
-  animation: steam 20s linear infinite;
-}
-
-@keyframes steam {
-  0% {
-    background-position: 0 0;
-  }
-  50% {
-    background-position: 400% 0;
-  }
-  100% {
-    background-position: 0 0;
-  }
-}
-
-.block:after {
-  filter: blur(50px);
+  margin: 0;
+  padding: 0;
 }
 
 .wrapper {
@@ -175,6 +134,36 @@ body {
   height: auto;
 }
 
+.wrapper4 {
+  position: absolute;
+  top: 300px;
+  left: 800px;
+}
+
+.difficulty {
+  position: absolute;
+  width: 1000px;
+  height: 500px;
+  left: 289px;
+  bottom: 70px;
+  border: 2px solid black;
+  margin: 100px auto;
+  background-color: purple;
+  visibility: hidden;
+}
+
+.wrapper5 {
+}
+
+.wrapper6 {
+}
+
+.wrapper7 {
+}
+
+.wrapper10 {
+}
+
 button {
   width: 180px;
   height: 50px;
@@ -198,12 +187,4 @@ button:hover {
   transition: all 0.5s;
   transform: rotate(-3deg) scale(1.1);
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
-}
-button:hover span {
-  animation-play-state: paused;
-}
-
-.score h2 {
-  color: red;
-  left: 830px;
 }

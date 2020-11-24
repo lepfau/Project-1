@@ -7,51 +7,21 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-
-
-<div class="home">
-    <img src="logo.png"/> 
-    <div class="wrapper">
-      <button>
-        PLAY ! 
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-    <div class="wrapper2">
-      <button>
-        HOW TO
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-    <div class="wrapper3">
-      <button>
-        ABOUT
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+    <!-- HOME PAGE  -->
+    <div class="home">
+      <img src="logo.png" />
+      <div class="wrapper">
+        <button>PLAY !</button>
+      </div>
+      <div class="wrapper2">
+        <button>HOW TO</button>
+      </div>
+      <div class="wrapper3">
+        <button>ABOUT</button>
+      </div>
     </div>
 
-    
-    <div class="wrapper5">
-      <button>
-        MEDIUM
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </div>
-
-  <div class= "block"></div>
+    <!-- GAME PART -->
     <div id="game">
       <input
         type="text"
@@ -59,31 +29,50 @@
         id="word-input"
         value=""
       />
+
       <div class="score">
-        <h2> SCORE: <span class="scoreSpan">0</span></h2>
+        <h2>SCORE: <span class="scoreSpan">0</span></h2>
       </div>
 
-<div class = "about">
-
-  <h1> ABOUT </h1>
-  <p> This is my first game made with JS ! I hope you enjoy it as much as I enjoyed making it ! </p>
-  <p> Music: Chipzel </p>
-  <div class="wrapper4">
-    <button>
-      MENU
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </div>
-
-</div>
-
-    <div id="fallingWords">
+      <div id="fallingWords"></div>
     </div>
+
+    <!-- ABOUT PAGE  -->
+    <div class="about">
+      <h1>ABOUT</h1>
+      <p>
+        This is my first game made with JS ! I hope you enjoy it as much as I
+        enjoyed making it !
+      </p>
+      <p>Music: Chipzel</p>
+      <div class="wrapper4">
+        <button>BACK</button>
+      </div>
+    </div>
+
+    <!-- DIFFICULTY PAGE -->
+    <div class="difficulty">
+      <h1>CHOOSE DIFFICULTY</h1>
+
+      <div class="wrapper5">
+        <button>EASY MODE</button>
+      </div>
+      <p>This is for you noob !</p>
+
+      <div class="wrapper6">
+        <button>MEDIUM MODE</button>
+      </div>
+      <p>If you're good enough...</p>
+
+      <div class="wrapper7">
+        <button>HARD MODE</button>
+      </div>
+      <p>For god-like typers only !!!</p>
+      <div class="wrapper10">
+        <button>BACK</button>
+      </div>
+    </div>
+
     <script src="Main.js"></script>
   </body>
 </html>
-
-
