@@ -16,8 +16,15 @@ let gamePage = document.querySelector('#game')
 let borderRgb = document.querySelector('.block')
 let about = document.querySelector('.about')
 
+
 let timer;
 let totalTime;
+
+var sample = document.getElementById("foobar");
+sample.play();
+
+var sample2 = document.getElementById("toto");
+
 
 function setTimer () {
   window.alert("GAME OVER !")
@@ -30,8 +37,11 @@ function clear () {
 
 
 function showGame () {
+ 
   difficulty.style.visibility = "hidden";
   gamePage.style.visibility = "visible";
+  sample.pause();
+  sample2.play();
 }
 
 function showAbout () {
@@ -62,6 +72,8 @@ score.textContent = Number(score.textContent) + 50
 function removeScore () {
   score.textContent = Number(score.textContent) - 100
 }
+
+
 
 //ARRAYS WORDS SENTENCES 
 
@@ -118,7 +130,6 @@ const colors = [
   'yellow'
 ];
 
-
 function generateWord () {
   const randomPx = Math.floor(Math.random() * 600) + 10
   const randomSize = Math.floor(Math.random() * 5) + 2  
@@ -135,7 +146,7 @@ function generateSentence () {
   const randomElement = sentences[Math.floor(Math.random() * sentences.length)];
   const randomColor = colors[Math.floor(Math.random() * colors.length)];
   fallingWords.innerHTML += `<h2 class="fallingSentence" style="left: ${randomPx}px; font-size: ${randomSize}em; color: ${randomColor};">${randomElement}</h2>`
-  timer = setTimeout (setTimer, 12000)
+  timer = setTimeout (setTimer, 10000)
 }
 
 
@@ -143,11 +154,13 @@ function matchWords() {
 
   if (wordInput.value === fallingWords.querySelector(".falling, .fallingSentence").textContent) {
     if (wordInput.value.length < 15) {
+      
       clear();
       fallingWords.removeChild(fallingWords.firstElementChild)    
       generateWord()
       wordInput.value = ""
       addScore();
+      
       
     }
 
@@ -192,17 +205,16 @@ buttonMedium.addEventListener('click', () => {
   generateSentence()
 })
 
-
 buttonAbout.addEventListener('click', () => {
   showAbout();
 })
 
 buttonMenu.addEventListener('click', () => {
-  location.reload();
+  showMenu()
 })
 
 buttonBack.addEventListener('click', () => {
-  location.reload();
+  goBack ()
 })
 
 
