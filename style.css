@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Exo:100,200,300);
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -5,24 +7,30 @@
 }
 
 #foobar {
-  display: none;
+  position: relative;
+  left: 400px;
 }
 
 #toto {
   display: none;
 }
 
+.neon {
+  color: #fff;
+}
+
 body {
   background-color: black;
 }
 #game {
-  position: relative;
+  position: absolute;
   width: 1000px;
   height: 500px;
-  bottom: 600px;
+  left: 300px;
   border: 5px solid black;
-  margin: 100px auto;
-  background-color: purple;
+  margin: 80px auto;
+  background-image: url("1496909646_tumblr_static_d1q2by73uv40084wg488gwkgo.gif");
+  background-size: cover;
   visibility: hidden;
 }
 
@@ -35,13 +43,18 @@ body {
   text-align: center;
   font-size: 2em;
   background-color: yellow;
+  font-family: Exo;
+  font-weight: 300;
 }
 
 #fallingWords {
-  width: 1000px;
+  width: 900px;
 }
 
 .falling {
+  font-family: Exo;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #0ff,
+    0 0 80px #0ff, 0 0 90px #0ff, 0 0 100px #0ff, 0 0 150px #0ff;
   position: relative;
   margin: 0;
   padding: 0;
@@ -54,6 +67,8 @@ body {
   left: 400px;
   animation: fallingTop 10s linear;
   animation-fill-mode: forwards;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #0ff,
+    0 0 80px #0ff, 0 0 90px #0ff, 0 0 100px #0ff, 0 0 150px #0ff;
 }
 
 @keyframes fallingTop {
@@ -69,37 +84,40 @@ body {
   100% {
     top: 350px;
     opacity: 0;
-    color: black;
+    color: red;
   }
 }
 
 .score h2 {
   position: relative;
-  color: red;
-  left: 850px;
+
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #0ff,
+    0 0 80px #0ff, 0 0 90px #0ff, 0 0 100px #0ff, 0 0 150px #0ff;
+  left: 800px;
   bottom: 20px;
+  /* border: 2px double red; */
+  width: 160px;
 }
 
 .about {
   position: absolute;
   width: 1000px;
   height: 500px;
-  left: 289px;
-  bottom: 70px;
+  left: 300px;
   border: 2px solid black;
-  margin: 100px auto;
+  margin: 80px auto;
   background-color: purple;
   visibility: hidden;
 }
 
 .home {
-  position: relative;
-
+  position: absolute;
+  left: 300px;
   width: 1000px;
   height: 500px;
   border: 2px solid geen;
-  margin: 100px auto;
-  background-color: purple;
+  margin: 80px auto;
+  background-color: rgb(82, 13, 128);
   visibility: visible;
 }
 
@@ -122,6 +140,11 @@ body {
   transform: translate(-50%, -50%);
   width: fit-content;
   height: auto;
+}
+
+.exo {
+  font-family: Exo;
+  font-size: 1em;
 }
 
 .wrapper2 {
@@ -161,10 +184,9 @@ body {
   position: absolute;
   width: 1000px;
   height: 500px;
-  left: 289px;
-  bottom: 70px;
+  left: 300px;
   border: 2px solid black;
-  margin: 100px auto;
+  margin: 80px auto;
   background-color: purple;
   visibility: hidden;
 }
