@@ -5,21 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SUPER TYPER 2077</title>
     <link rel="stylesheet" href="style.css" />
+    <script type="module" src="Main.js"></script>
   </head>
   <body>
     <!-- HOME PAGE  -->
     <div class="home">
       <img src="logo.png" />
       <div class="wrapper">
-        <button class="exo">PLAY !</button>
+        <button class="tricks">PLAY !</button>
       </div>
       <div class="wrapper2">
-        <button class="exo">HOW TO</button>
+        <button class="tricks">HOW TO</button>
       </div>
       <div class="wrapper3">
-        <button class="exo">ABOUT</button>
+        <button class="tricks">ABOUT</button>
       </div>
       <audio id="foobar" src="chipzel.mp3" controls></audio>
+    
+    
     </div>
 
     <!-- GAME PART -->
@@ -28,6 +31,7 @@
         type="text"
         placeholder="Start typing..."
         id="word-input"
+        
         value=""
       />
 
@@ -36,24 +40,41 @@
       </div>
 
       <div id="fallingWords"></div>
+      
 
       <audio id="toto" src="spectra.mp3" preload="auto" >Chipzel</audio>
     
-    <audio id="laser" src="laser.mp3" ></audio>
-    <audio id="fail" src="fail.mp3"></audio>
+    <audio id="laser" src="laser (mp3cut.net).mp3" ></audio>
+    <audio id="fail" src="fail (mp3cut.net).mp3"></audio>
+    <audio id="okletsgo" src="okletsgo (mp3cut.net).mp3"></audio>
     </div>
+
+
 
     <!-- ABOUT PAGE  -->
     <div class="about">
       <h1>ABOUT</h1>
-      <p>
+      <p class="exo">
         This is my first game made with JS ! I hope you enjoy it as much as I
         enjoyed making it !
       </p>
-      <p>Music: Chipzel</p>
+      <p class="exo">Music: Chipzel</p>
       <div class="wrapper4">
-        <button class="exo">BACK</button>
+        <button class="tricks">BACK</button>
       </div>
+    </div>
+
+     <!-- HOW TO PAGE  -->
+     <div class="howto">
+      <h1>HOW THE GAME WORKS</h1>
+      <p class="exo">
+        The rule is simple: type the word or the sentence before it falls to the ground !
+      </p>
+    
+      <div class="backhow">
+        <button class="tricks">BACK</button>
+      </div>
+      
     </div>
 
     <!-- DIFFICULTY PAGE -->
@@ -64,29 +85,29 @@
 
       <div class="flex">
         <div class="wrapper5">
-          <button class="exo">EASY MODE</button>
-          <p>This is for you noob !</p>
+          <button class="tricks">EASY</button>
+          <p class="exo">This is for you noob !</p>
           <img src="teddy.png" />
         </div>
 
         <div class="wrapper6">
-          <button class="exo">MEDIUM MODE</button>
-          <p>If you're good enough...</p>
+          <button class="tricks">MEDIUM</button>
+          <p class="exo">If you're good enough...</p>
           <img src="mechaMedium.png" />
         </div>
 
         <div class="wrapper7">
-          <button class="exo">HARD MODE</button>
-          <p>For god-like typers only !!!</p>
+          <button class="tricks">HARD</button>
+          <p class="exo">For god-like typers only !!!</p>
           <img src="mechaHard.png" />
         </div>
       </div>
       <div class="wrapper10">
-        <button class="exo">BACK</button>
+        <button class="tricks">BACK</button>
       </div>
     </div>
 
-    <script src="Main.js"></script>
+    
   </body>
 </html>
 

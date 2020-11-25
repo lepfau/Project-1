@@ -2,25 +2,28 @@ let fallingWords = document.getElementById('fallingWords')
 let wordInput = document.getElementById('word-input')
 let fallingSingleWord = document.getElementsByClassName("falling")
 let buttonStart = document.querySelector(".wrapper button")
+let buttonHowto = document.querySelector(".wrapper2 button")
 let buttonAbout = document.querySelector(".wrapper3 button")
 let buttonMenu = document.querySelector(".wrapper4 button")
 let buttonEasy = document.querySelector(".wrapper5 button")
 let buttonMedium = document.querySelector(".wrapper6 button")
 let buttonHard = document.querySelector(".wrapper7 button")
 let buttonBack = document.querySelector(".wrapper10 button")
+let buttonBackhow = document.querySelector(".backhow button")
 let score = document.querySelector(".scoreSpan")
 let fallingw = document.querySelector(".falling")
+
 
 let difficulty = document.querySelector('.difficulty')
 let homePage = document.querySelector('.home')
 let gamePage = document.querySelector('#game')
 let borderRgb = document.querySelector('.block')
 let about = document.querySelector('.about')
-
+let howto = document.querySelector('.howto')
 
 let timer;
 let totalTime;
-
+let totalWords = 0;
 
 
 var sample = document.getElementById("foobar");
@@ -30,11 +33,13 @@ var sample2 = document.getElementById("toto");
 
 var laser = document.getElementById("laser");
 var fail = document.getElementById("fail");
+var okletsgo = document.getElementById("okletsgo")
 
 
 function setTimer () {
-  window.alert(`GAME OVER ! TEXT FALL ON THE GROUND`)
+  window.alert(`GAME OVER ! TEXT FELL ON THE GROUND !`)
   location.reload()
+  
 }
 
 function clear () {
@@ -55,9 +60,19 @@ function showAbout () {
   about.style.visibility = "visible";
 }
 
+function showHowto() {
+  homePage.style.visibility = "hidden";
+  howto.style.visibility = "visible"
+} 
+
 function showMenu () {
   about.style.visibility ="hidden";
   homePage.style.visibility ="visible";
+}
+
+function backFromhowto() {
+  howto.style.visibility ="hidden";
+  homePage.style.visibility = "visible";
 }
 
 function goBack () {
@@ -79,7 +94,9 @@ function removeScore () {
   score.textContent = Number(score.textContent) - 100
 }
 
-
+function addWordsCount () {
+  totalWords += 1
+}
 
 //ARRAYS WORDS SENTENCES 
 
@@ -330,52 +347,65 @@ const wordsList = [
 ]
 
 const sentences = [
-  'Love for all, hatred for none',
-  'Change the world by being yourself',
-  'Every moment is a fresh beginning',
-  'Never regret anything that made you smile',
-  'Aspire to inspire before we expire',
-  'Everything you can imagine is real',
-  'Simplicity is the ultimate sophistication',
-  'Whatever you do, do it well',
-  'What we think, we become',
-  'All limitations are self-imposed',
-  'Tough times never last but tough people do',
-  'Problems are not stop signs, they are guidelines',
-  'Be so good they can’t ignore you',
-  'If you cannot do great things, do small things in a great way',
-  'If opportunity doesn’t knock, build a door',
-  'Strive not to be a success, but rather to be of value',
-  'Do not let what you cannot do interfere with what you can do',
-  'A journey of a thousand leagues begins beneath one’s feet',
-  'Either you run the day, or the day runs you',
-  'You must be the change you wish to see in the world',
-  'Believe and act as if it were impossible to fail',
-  'The best way to predict the future is to invent it',
-  'Everything has beauty, but not everyone can see',
-  'Believe you can and you’re halfway there',
-  'Change your thoughts and you change your world',
-  'You miss 100% of the shots you don’t take',
-  'The only thing we have to fear is fear itself',
-  'He who angers you conquers you',
-  'A happy family is but an earlier heaven'
+  'love for all, hatred for none',
+  'change the world by being yourself',
+  'every moment is a fresh beginning',
+  'never regret anything that made you smile',
+  'aspire to inspire before we expire',
+  'everything you can imagine is real',
+  'simplicity is the ultimate sophistication',
+  'whatever you do, do it well',
+  'what we think, we become',
+  'all limitations are self-imposed',
+  'tough times never last but tough people do',
+  'problems are not stop signs, they are guidelines',
+  'be so good they can’t ignore you',
+  'if you cannot do great things, do small things in a great way',
+  'if opportunity doesn’t knock, build a door',
+  'strive not to be a success, but rather to be of value',
+  'do not let what you cannot do interfere with what you can do',
+  'a journey of a thousand leagues begins beneath one’s feet',
+  'either you run the day, or the day runs you',
+  'you must be the change you wish to see in the world',
+  'believe and act as if it were impossible to fail',
+  'the best way to predict the future is to invent it',
+  'everything has beauty, but not everyone can see',
+  'believe you can and you’re halfway there',
+  'change your thoughts and you change your world',
+  'you miss 100% of the shots you don’t take',
+  'the only thing we have to fear is fear itself',
+  'he who angers you conquers you',
+  'a happy family is but an earlier heaven'
 ]
 
 const colors = [
-  'blue',
-  'red',
-  'green',
-  'pink',
-  'yellow'
+  '#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6', 
+  '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',
+  '#80B300', '#809900', '#E6B3B3', '#6680B3', '#66991A', 
+  '#FF99E6', '#CCFF1A', '#FF1A66', '#E6331A', '#33FFCC',
+  '#66994D', '#B366CC', '#4D8000', '#B33300', '#CC80CC', 
+  '#66664D', '#991AFF', '#E666FF', '#4DB3FF', '#1AB399',
+  '#E666B3', '#33991A', '#CC9999', '#B3B31A', '#00E680', 
+  '#4D8066', '#809980', '#E6FF80', '#1AFF33', '#999933',
+  '#FF3380', '#CCCC00', '#66E64D', '#4D80CC', '#9900B3', 
+  '#E64D66', '#4DB380', '#FF4D4D', '#99E6E6', '#6666FF'
 ];
+
+const fallingClasses = [
+  'falling', 'fallingLeft'
+]
+
 
 function generateWord () {
   const randomPx = Math.floor(Math.random() * 600) + 10
-  const randomSize = Math.floor(Math.random() * 5) + 2  
+  const randomSize = Math.floor(Math.random() * 4) + 2.2  
   const randomElement = (wordsList[Math.floor(Math.random() * wordsList.length)]).toLowerCase();
   const randomColor = colors[Math.floor(Math.random() * colors.length)];
-  fallingWords.innerHTML += `<h2 class="falling" style="left: ${randomPx}px; font-size: ${randomSize}em; color: ${randomColor};">${randomElement}</h2>`
-timer = setTimeout (setTimer, 5000)
+  const randomFall = fallingClasses[Math.floor(Math.random() * fallingClasses.length)];
+
+    fallingWords.innerHTML += `<h2 class="falling" style="left: ${randomPx}px; font-size: ${randomSize}em; color: ${randomColor};">${randomElement}</h2>`
+    timer = setTimeout (setTimer, 5000)
+
 }
 
 
@@ -384,6 +414,7 @@ function generateSentence () {
   const randomSize = Math.floor(Math.random() * 1.5) + 1.2  
   const randomElement = sentences[Math.floor(Math.random() * sentences.length)];
   const randomColor = colors[Math.floor(Math.random() * colors.length)];
+  
   fallingWords.innerHTML += `<h2 class="fallingSentence" style="left: ${randomPx}px; font-size: ${randomSize}em; color: ${randomColor};">${randomElement}</h2>`
   timer = setTimeout (setTimer, 10000)
 }
@@ -399,10 +430,11 @@ function matchWords() {
       generateWord()
       wordInput.value = ""
       addScore();
-      
+      addWordsCount ();
     }
 
     else {
+      laser.play()
       clear();
       fallingWords.removeChild(fallingWords.firstElementChild)    
       generateSentence()
@@ -437,7 +469,11 @@ buttonStart.addEventListener('click', () => {
 
 buttonEasy.addEventListener('click', () => {
   showGame();
-  generateWord()
+okletsgo.play()
+  setTimeout(() => {
+    generateWord()
+  }, 3000);
+  
 })
 
 buttonMedium.addEventListener('click', () => {
@@ -455,6 +491,14 @@ buttonMenu.addEventListener('click', () => {
 
 buttonBack.addEventListener('click', () => {
   goBack ()
+})
+
+buttonHowto.addEventListener('click', () => {
+  showHowto();
+})
+
+buttonBackhow.addEventListener('click', () => {
+  backFromhowto();
 })
 
 

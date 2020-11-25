@@ -1,9 +1,23 @@
 @import url(https://fonts.googleapis.com/css?family=Exo:100,200,300);
 
+@font-face {
+  font-family: Glitch;
+  src: url(/Glitch\ inside.otf);
+}
+
+@font-face {
+  font-family: Tricks;
+  src: url(/TricksHollow-Italic.ttf);
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+body {
+  position: relative;
 }
 
 #foobar {
@@ -34,6 +48,18 @@ body {
   visibility: hidden;
 }
 
+#gameMedium {
+  position: absolute;
+  width: 1000px;
+  height: 500px;
+  left: 300px;
+  border: 5px solid black;
+  margin: 80px auto;
+  background-color: purple;
+  background-size: cover;
+  visibility: hidden;
+}
+
 #word-input {
   position: relative;
   top: 510px;
@@ -47,13 +73,22 @@ body {
   font-weight: 300;
 }
 
+@keyframes greenB {
+  0% {
+    background-color: yellow;
+  }
+  100% {
+    background-color: green;
+  }
+}
+
 #fallingWords {
   width: 900px;
 }
 
 .falling {
-  font-family: Exo;
-  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #0ff,
+  font-family: Glitch;
+  text-shadow: 0 0 5px pink, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #0ff,
     0 0 80px #0ff, 0 0 90px #0ff, 0 0 100px #0ff, 0 0 150px #0ff;
   position: relative;
   margin: 0;
@@ -63,30 +98,64 @@ body {
 }
 
 .fallingSentence {
+  font-family: Glitch;
   position: relative;
-  left: 400px;
+  width: 200px;
+  left: 0px;
   animation: fallingTop 10s linear;
   animation-fill-mode: forwards;
-  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #0ff,
-    0 0 80px #0ff, 0 0 90px #0ff, 0 0 100px #0ff, 0 0 150px #0ff;
 }
 
 @keyframes fallingTop {
   0% {
     top: -40px;
+    letter-spacing: 0.1em;
+    opacity: 1;
   }
 
-  90% {
-    top: 350px;
+  95% {
+    top: 310px;
+    letter-spacing: 0.1em;
     opacity: 1;
   }
 
   100% {
-    top: 350px;
+    top: 310px;
+    opacity: 0;
+    color: red;
+    letter-spacing: 1em;
+    opacity: 0;
+  }
+}
+
+/* .fallingLeft {
+  font-family: Exo;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #0ff,
+    0 0 80px #0ff, 0 0 90px #0ff, 0 0 100px #0ff, 0 0 150px #0ff;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  animation: fallingLeft 5s linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fallingLeft {
+  0% {
+    top: 400px;
+    left: 0px;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 300px;
+    left: 400px;
     opacity: 0;
     color: red;
   }
-}
+} */
 
 .score h2 {
   position: relative;
@@ -106,7 +175,7 @@ body {
   left: 300px;
   border: 2px solid black;
   margin: 80px auto;
-  background-color: purple;
+  background-color: rgb(82, 13, 128);
   visibility: hidden;
 }
 
@@ -115,7 +184,7 @@ body {
   left: 300px;
   width: 1000px;
   height: 500px;
-  border: 2px solid geen;
+
   margin: 80px auto;
   background-color: rgb(82, 13, 128);
   visibility: visible;
@@ -143,8 +212,14 @@ body {
 }
 
 .exo {
-  font-family: Exo;
+  font-family: exo;
   font-size: 1em;
+}
+
+.tricks {
+  font-family: tricks;
+  font-size: 1.5em;
+  color: orange;
 }
 
 .wrapper2 {
@@ -167,7 +242,7 @@ body {
 
 .wrapper4 {
   position: absolute;
-  top: 300px;
+  top: 420px;
   left: 800px;
 }
 
@@ -187,16 +262,19 @@ body {
   left: 300px;
   border: 2px solid black;
   margin: 80px auto;
-  background-color: purple;
+  background-color: rgb(82, 13, 128);
   visibility: hidden;
 }
 
 .difficulty h1 {
   margin-top: 20px;
   margin-bottom: 30px;
-  color: white;
+
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #0ff,
+    0 0 80px #0ff, 0 0 10px #0ff, 0 0 10px #0ff, 0 0 10px #0ff;
   text-align: center;
   font-size: 4em;
+  font-family: Glitch;
 }
 
 .wrapper5 img {
@@ -244,4 +322,15 @@ button:hover {
   transition: all 0.1s;
   transform: rotate(-3deg) scale(1.1);
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
+}
+
+.howto {
+  position: absolute;
+  width: 1000px;
+  height: 500px;
+  left: 300px;
+  border: 2px solid black;
+  margin: 80px auto;
+  background-color: rgb(82, 13, 128);
+  visibility: hidden;
 }
