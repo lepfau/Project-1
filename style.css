@@ -2,12 +2,12 @@
 
 @font-face {
   font-family: Glitch;
-  src: url(/Fonts/Glitch\ inside.otf);
+  src: url(./Fonts/Glitch\ inside.otf);
 }
 
 @font-face {
   font-family: Tricks;
-  src: url(/Fonts/TricksHollow-Italic.ttf);
+  src: url(./Fonts/TricksHollow-Italic.ttf);
 }
 
 * {
@@ -43,7 +43,7 @@ body {
   left: 300px;
   border: 5px solid black;
   margin: 80px auto;
-  background-image: url("/Assets/1496909646_tumblr_static_d1q2by73uv40084wg488gwkgo.gif");
+  background-image: url("./Assets/1496909646_tumblr_static_d1q2by73uv40084wg488gwkgo.gif");
   background-size: cover;
   visibility: hidden;
 }
