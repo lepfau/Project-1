@@ -13,7 +13,7 @@ let buttonBackhow = document.querySelector(".backhow button")
 let score = document.querySelector(".scoreSpan")
 let fallingw = document.querySelector(".falling")
 let rgbBorder = document.querySelector(".block")
-
+let getready = document.querySelector(".getready")
 
 let difficulty = document.querySelector('.difficulty')
 let homePage = document.querySelector('.home')
@@ -518,6 +518,7 @@ buttonEasy.addEventListener('click', () => {
 okletsgo.play()
   setTimeout(() => {
     generateWord()
+    getready.style.visibility = "hidden"
 
   }, 3000);
   
@@ -528,6 +529,7 @@ buttonMedium.addEventListener('click', () => {
   okletsgo.play()
   setTimeout(() => {
     generateSentence()
+    getready.style.visibility = "hidden"
   }, 3000);
   
 })
@@ -537,6 +539,7 @@ buttonZen.addEventListener('click', () => {
   okletsgo.play()
   setTimeout(() => {
     generateZen();
+    getready.style.visibility = "hidden"
   }, 3000);
   
 })
