@@ -26,6 +26,7 @@ let timer;
 let totalTime;
 let totalWords = 0;
 
+//GET MP3 ELEMENTS FROM HTML 
 
 var sample = document.getElementById("foobar");
 sample.play();
@@ -36,6 +37,8 @@ var laser = document.getElementById("laser");
 var fail = document.getElementById("fail");
 var okletsgo = document.getElementById("okletsgo")
 var explosion = document.getElementById("explosion")
+
+//TIMING AND ENDING 
 
 function setTimer () {
   sample2.pause();
@@ -49,6 +52,7 @@ function clear () {
   clearTimeout(timer)
 }
 
+//FUNCTIONS TO NAVIGATE TROUGH MENUS
 
 function showGame () {
  
@@ -89,6 +93,8 @@ function showDifficulty() {
   difficulty.style.visibility = "visible"
 }
 
+//SCORE DECREMENTING AND INCREMENTING FUNCTIONS
+
 function addScore () {
 score.textContent = Number(score.textContent) + 50
 }
@@ -102,7 +108,7 @@ function addWordsCount () {
   totalWords += 1
 }
 
-//ARRAYS WORDS SENTENCES 
+//ARRAYS WORDS / SENTENCES 
 
 const wordsList = [
   'ACCOUNT','ACCURATE','ACRES','ACROSS','ACT','ACTION','ACTIVE','ACTIVITY',
@@ -379,6 +385,9 @@ const sentences = [
   'a happy family is but an earlier heaven'
 ]
 
+//ARRAYS FOR STYLE RANDOMIZATION
+
+
 const colors = [
   '#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6', 
   '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',
@@ -396,6 +405,7 @@ const fallingClasses = [
   'falling', 'fallingLeft'
 ]
 
+//GENERATING FUNCTIONS AND RANDOMIZE POSITON AND STYLE
 
 function generateWord () {
   const randomPx = Math.floor(Math.random() * 600) + 10
@@ -432,6 +442,8 @@ function generateZen () {
     timer = setTimeout (setTimer, 15000)
 
 }
+
+//MATCHING FUNCTIONS
 
 function matchWords() {
 
@@ -565,14 +577,4 @@ buttonBackhow.addEventListener('click', () => {
   backFromhowto();
 })
 
-
-// function removeWord () {
-//   fallingWords.textContent= ""
-//   inputWord.value = ""
-// }
-
-// function addWordToHtml () {
-//   generateWord();
-//   console.log(randomElement)
-// }
 
