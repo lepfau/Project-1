@@ -40,9 +40,8 @@ body {
   position: absolute;
   width: 1000px;
   height: 500px;
-
-  border: 5px solid black;
-
+  border-left: 4px solid white;
+  border-right: 4px solid white;
   background-image: url("./Assets/1496909646_tumblr_static_d1q2by73uv40084wg488gwkgo.gif");
   background-size: cover;
   visibility: hidden;
@@ -103,6 +102,17 @@ body {
 
   left: 0px;
   animation: fallingTop 10s linear;
+  animation-fill-mode: forwards;
+}
+
+.fallingZen {
+  font-family: Glitch;
+  text-shadow: 0 0 5px pink, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #0ff,
+    0 0 80px #0ff, 0 0 90px #0ff, 0 0 100px #0ff, 0 0 150px #0ff;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  animation: fallingTop 15s linear;
   animation-fill-mode: forwards;
 }
 
@@ -179,6 +189,13 @@ body {
   visibility: hidden;
 }
 
+.aboutTitle {
+  font-family: Glitch;
+  margin: 40px;
+  text-align: center;
+  font-size: 4em;
+}
+
 .home {
   position: absolute;
   left: 300px;
@@ -213,7 +230,8 @@ body {
 
 .exo {
   font-family: exo;
-  font-size: 1em;
+  font-size: 1.5em;
+  margin: 30px;
 }
 
 .tricks {
@@ -242,8 +260,8 @@ body {
 
 .wrapper4 {
   position: absolute;
-  top: 420px;
-  left: 800px;
+  top: 400px;
+  left: 780px;
 }
 
 .flex {
@@ -266,7 +284,13 @@ body {
   visibility: hidden;
 }
 
-.difficulty h1 {
+.backhow {
+  position: absolute;
+  top: 400px;
+  left: 780px;
+}
+
+.title {
   margin-top: 20px;
   margin-bottom: 30px;
 

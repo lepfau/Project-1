@@ -7,7 +7,7 @@ let buttonAbout = document.querySelector(".wrapper3 button")
 let buttonMenu = document.querySelector(".wrapper4 button")
 let buttonEasy = document.querySelector(".wrapper5 button")
 let buttonMedium = document.querySelector(".wrapper6 button")
-let buttonHard = document.querySelector(".wrapper7 button")
+let buttonZen = document.querySelector(".wrapper7 button")
 let buttonBack = document.querySelector(".wrapper10 button")
 let buttonBackhow = document.querySelector(".backhow button")
 let score = document.querySelector(".scoreSpan")
@@ -361,17 +361,14 @@ const sentences = [
   'tough times never last but tough people do',
   'problems are not stop signs, they are guidelines',
   'be so good they can’t ignore you',
-  'if you cannot do great things, do small things in a great way',
   'if opportunity doesn’t knock, build a door',
   'strive not to be a success, but rather to be of value',
-  'do not let what you cannot do interfere with what you can do',
-  'a journey of a thousand leagues begins beneath one’s feet',
   'either you run the day, or the day runs you',
   'you must be the change you wish to see in the world',
   'believe and act as if it were impossible to fail',
   'the best way to predict the future is to invent it',
   'everything has beauty, but not everyone can see',
-  'believe you can and you’re halfway there',
+  'believe you can and you re halfway there',
   'change your thoughts and you change your world',
   'you miss 100% of the shots you don’t take',
   'the only thing we have to fear is fear itself',
@@ -421,6 +418,18 @@ function generateSentence () {
 }
 
 
+function generateZen () {
+  const randomPx = Math.floor(Math.random() * 600) + 10
+  const randomSize = Math.floor(Math.random() * 4) + 2.2  
+  const randomElement = (wordsList[Math.floor(Math.random() * wordsList.length)]).toLowerCase();
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+  const randomFall = fallingClasses[Math.floor(Math.random() * fallingClasses.length)];
+
+    fallingWords.innerHTML += `<h2 class="fallingZen" style="left: ${randomPx}px; font-size: ${randomSize}em; color: ${randomColor};">${randomElement}</h2>`
+    timer = setTimeout (setTimer, 15000)
+
+}
+
 function matchWords() {
 
   if (wordInput.value === fallingWords.querySelector(".falling, .fallingSentence").textContent) {
@@ -454,13 +463,46 @@ function matchWords() {
   }
 }
 
+function matchWordsZen() {
+
+  if (wordInput.value === fallingWords.querySelector(".fallingZen").textContent) {
+      laser.play();
+      clear();
+      fallingWords.removeChild(fallingWords.firstElementChild)    
+      generateZen()
+      wordInput.value = ""
+      addScore();
+      addWordsCount ();
+    }
+
+  else {
+    
+    wordInput.value = ""
+    console.log("Wrong")
+  removeScore()
+  fail.play();
+  }
+}
+
+
+
+
 //INPUT AND BUTTONS ACTION
 
 wordInput.addEventListener('keypress', function (e) {
   if (e.key === 'Enter') {
  matchWords();
+
   }
 });
+
+wordInput.addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') {
+ matchWordsZen();
+
+  }
+});
+
 
 
 buttonStart.addEventListener('click', () => {
@@ -479,8 +521,22 @@ okletsgo.play()
 
 buttonMedium.addEventListener('click', () => {
   showGame();
-  generateSentence()
+  okletsgo.play()
+  setTimeout(() => {
+    generateSentence()
+  }, 3000);
+  
 })
+
+buttonZen.addEventListener('click', () => {
+  showGame();
+  okletsgo.play()
+  setTimeout(() => {
+    generateZen();
+  }, 3000);
+  
+})
+
 
 buttonAbout.addEventListener('click', () => {
   showAbout();
