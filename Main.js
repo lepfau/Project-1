@@ -14,6 +14,7 @@ let score = document.querySelector(".scoreSpan")
 let fallingw = document.querySelector(".falling")
 let rgbBorder = document.querySelector(".block")
 
+
 let difficulty = document.querySelector('.difficulty')
 let homePage = document.querySelector('.home')
 let gamePage = document.querySelector('#game')
@@ -34,9 +35,11 @@ var sample2 = document.getElementById("toto");
 var laser = document.getElementById("laser");
 var fail = document.getElementById("fail");
 var okletsgo = document.getElementById("okletsgo")
-
+var explosion = document.getElementById("explosion")
 
 function setTimer () {
+  sample2.pause();
+  explosion.play();
   window.alert(`GAME OVER ! TEXT FELL ON THE GROUND !`)
   location.reload()
   
@@ -457,7 +460,6 @@ function matchWords() {
   else {
     
     wordInput.value = ""
-    console.log("Wrong")
   removeScore()
   fail.play();
   }
@@ -478,6 +480,7 @@ function matchWordsZen() {
   else {
     
     wordInput.value = ""
+   
     console.log("Wrong")
   removeScore()
   fail.play();
@@ -515,6 +518,7 @@ buttonEasy.addEventListener('click', () => {
 okletsgo.play()
   setTimeout(() => {
     generateWord()
+
   }, 3000);
   
 })
