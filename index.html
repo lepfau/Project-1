@@ -19,31 +19,40 @@
       <div class="wrapper3">
         <button class="tricks">ABOUT</button>
       </div>
-      <audio id="foobar" src="./Assets/chipzel.mp3" controls></audio>
+      <audio
+        id="foobar"
+        src="./Assets/chipzel.mp3"
+        controls
+        preload="auto"
+      ></audio>
     </div>
 
     <!-- GAME PART -->
-    <div id="game">
-      <input
-        type="text"
-        placeholder="Start typing..."
-        id="word-input"
-        value=""
-      />
 
-      <div class="score">
-        <h2>SCORE: <span class="scoreSpan">0</span></h2>
+    <div class="block">
+      <div id="game">
+        <input
+          type="text"
+          placeholder="Start typing..."
+          id="word-input"
+          value=""
+        />
+
+        <div class="score">
+          <h2>SCORE: <span class="scoreSpan">0</span></h2>
+        </div>
+
+        <div id="fallingWords"></div>
+
+        <audio id="toto" src="./Assets/spectra.mp3" preload="auto">
+          Chipzel
+        </audio>
+
+        <audio id="laser" src="./Assets/laser (mp3cut.net).mp3"></audio>
+        <audio id="fail" src="./Assets/fail (mp3cut.net).mp3"></audio>
+        <audio id="okletsgo" src="./Assets/okletsgo (mp3cut.net).mp3"></audio>
       </div>
-
-      <div id="fallingWords"></div>
-
-      <audio id="toto" src="./Assets/spectra.mp3" preload="auto">Chipzel</audio>
-
-      <audio id="laser" src="./Assets/laser (mp3cut.net).mp3"></audio>
-      <audio id="fail" src="./Assets/fail (mp3cut.net).mp3"></audio>
-      <audio id="okletsgo" src="./Assets/okletsgo (mp3cut.net).mp3"></audio>
     </div>
-
     <!-- ABOUT PAGE  -->
     <div class="about">
       <h1>ABOUT</h1>

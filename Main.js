@@ -12,7 +12,7 @@ let buttonBack = document.querySelector(".wrapper10 button")
 let buttonBackhow = document.querySelector(".backhow button")
 let score = document.querySelector(".scoreSpan")
 let fallingw = document.querySelector(".falling")
-
+let rgbBorder = document.querySelector(".block")
 
 let difficulty = document.querySelector('.difficulty')
 let homePage = document.querySelector('.home')
@@ -51,6 +51,7 @@ function showGame () {
  
   difficulty.style.visibility = "hidden";
   gamePage.style.visibility = "visible";
+  rgbBorder.style.visibility = "hidden"
   sample.pause();
   sample2.play();
 }
@@ -411,7 +412,7 @@ function generateWord () {
 
 function generateSentence () {
   const randomPx = Math.floor(Math.random() * 200) + 10
-  const randomSize = Math.floor(Math.random() * 1.5) + 1.2  
+  const randomSize = Math.floor(Math.random() * 2.5) + 2 
   const randomElement = sentences[Math.floor(Math.random() * sentences.length)];
   const randomColor = colors[Math.floor(Math.random() * colors.length)];
   

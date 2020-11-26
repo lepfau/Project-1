@@ -40,9 +40,9 @@ body {
   position: absolute;
   width: 1000px;
   height: 500px;
-  left: 300px;
+
   border: 5px solid black;
-  margin: 80px auto;
+
   background-image: url("./Assets/1496909646_tumblr_static_d1q2by73uv40084wg488gwkgo.gif");
   background-size: cover;
   visibility: hidden;
@@ -100,7 +100,7 @@ body {
 .fallingSentence {
   font-family: Glitch;
   position: relative;
-  width: 200px;
+
   left: 0px;
   animation: fallingTop 10s linear;
   animation-fill-mode: forwards;
@@ -333,4 +333,56 @@ button:hover {
   margin: 80px auto;
   background-color: rgb(82, 13, 128);
   visibility: hidden;
+}
+
+.block {
+  position: absolute;
+  margin: 80px auto;
+  left: 300px;
+  width: 1000px;
+  height: 500px;
+  background: linear-gradient(0deg, #000, #272727);
+  z-index: -1;
+}
+
+.block:before,
+.block:after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  background: linear-gradient(
+    45deg,
+    #fb0094,
+    #0000ff,
+    #00ff00,
+    #ffff00,
+    #ff0000,
+    #fb0094,
+    #0000ff,
+    #00ff00,
+    #ffff00,
+    #ff0000
+  );
+  background-size: 400%;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  z-index: -1;
+  animation: steam 20s linear infinite;
+}
+
+@keyframes steam {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.block:after {
+  filter: blur(50px);
 }
