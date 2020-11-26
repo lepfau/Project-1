@@ -40,8 +40,7 @@ body {
   position: absolute;
   width: 1000px;
   height: 500px;
-  border-left: 4px solid white;
-  border-right: 4px solid white;
+
   background-image: url("./Assets/1496909646_tumblr_static_d1q2by73uv40084wg488gwkgo.gif");
   background-size: cover;
   visibility: hidden;
@@ -176,6 +175,10 @@ body {
   bottom: 20px;
   /* border: 2px double red; */
   width: 160px;
+}
+
+.zen {
+  background: none;
 }
 
 .about {
@@ -315,6 +318,7 @@ body {
 .wrapper7 img {
   width: auto;
   height: 180px;
+  background: none;
 }
 
 .wrapper10 {
