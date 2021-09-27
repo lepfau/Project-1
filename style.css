@@ -28,9 +28,7 @@
   font-size: 3em;
 }
 
-body {
-  position: relative;
-}
+
 
 #foobar {
   position: relative;
@@ -47,12 +45,16 @@ body {
 
 body {
   background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
 }
 #game {
   position: absolute;
   width: 1000px;
   height: 500px;
-
   background-image: url("./Assets/1496909646_tumblr_static_d1q2by73uv40084wg488gwkgo.gif");
   background-size: cover;
   visibility: hidden;
@@ -81,6 +83,7 @@ body {
   background-color: yellow;
   font-family: Exo;
   font-weight: 300;
+
 }
 
 @keyframes greenB {
@@ -197,11 +200,11 @@ body {
   position: absolute;
   width: 1000px;
   height: 500px;
-  left: 300px;
   border: 2px solid black;
   margin: 80px auto;
   background-color: rgb(82, 13, 128);
   visibility: hidden;
+  
 }
 
 .aboutTitle {
@@ -212,35 +215,28 @@ body {
 }
 
 .home {
-  position: absolute;
-  left: 300px;
-  width: 1000px;
-  height: 500px;
-
-  margin: 80px auto;
-  background-color: rgb(82, 13, 128);
-  visibility: visible;
+    width: 1000px;
+    display: flex;
+    height: 500px;
+    background-color: rgb(82, 13, 128);
+    visibility: visible;
 }
 
 .home img {
-  position: relative;
-  font-size: 5em;
-  height: 537px;
-  width: 900px;
-  left: 0px;
-  text-align: center;
-  color: blue;
-  margin: 0;
-  padding: 0;
+  height: 534px;
+  width: 80%;
+}
+
+.home_buttons {
+  height: 100%;
+  width: 197px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .wrapper {
-  position: absolute;
-  top: 100px;
-  left: 892px;
-  transform: translate(-50%, -50%);
-  width: fit-content;
-  height: auto;
+
 }
 
 .exo {
@@ -256,21 +252,11 @@ body {
 }
 
 .wrapper2 {
-  position: absolute;
-  top: 200px;
-  left: 892px;
-  transform: translate(-50%, -50%);
-  width: fit-content;
-  height: auto;
+
 }
 
 .wrapper3 {
-  position: absolute;
-  top: 420px;
-  left: 892px;
-  transform: translate(-50%, -50%);
-  width: fit-content;
-  height: auto;
+
 }
 
 .wrapper4 {
@@ -292,7 +278,7 @@ body {
   position: absolute;
   width: 1000px;
   height: 500px;
-  left: 300px;
+ 
   border: 2px solid black;
   margin: 80px auto;
   background-color: rgb(82, 13, 128);
@@ -368,20 +354,27 @@ button:hover {
   position: absolute;
   width: 1000px;
   height: 500px;
-  left: 300px;
+
   border: 2px solid black;
   margin: 80px auto;
   background-color: rgb(82, 13, 128);
   visibility: hidden;
 }
+.testgame {
+  width: 1000px;
+  height: 500px;
+  position: absolute;
+  z-index: -1;
+}
 
 .block {
   position: absolute;
-  margin: 80px auto;
-  left: 300px;
+  /* margin: 80px auto; */
+  /* left: 300px; */
   width: 1000px;
   height: 500px;
-  background: linear-gradient(0deg, #000, #272727);
+  background: linear-gradient(
+0deg, #000, #272727);
   z-index: -1;
 }
 

@@ -55,7 +55,7 @@ function clear () {
 //FUNCTIONS TO NAVIGATE TROUGH MENUS
 
 function showGame () {
- 
+
   difficulty.style.visibility = "hidden";
   gamePage.style.visibility = "visible";
   rgbBorder.style.visibility = "hidden"
@@ -439,7 +439,7 @@ function generateZen () {
   const randomFall = fallingClasses[Math.floor(Math.random() * fallingClasses.length)];
 
     fallingWords.innerHTML += `<h2 class="fallingZen" style="left: ${randomPx}px; font-size: ${randomSize}em; color: ${randomColor};">${randomElement}</h2>`
-    timer = setTimeout (setTimer, 15000)
+    timer = setTimeout (setTimer, 1500000)
 
 }
 
