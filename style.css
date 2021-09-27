@@ -364,7 +364,7 @@ button:hover {
   width: 1000px;
   height: 500px;
   position: absolute;
-  z-index: -1;
+
 }
 
 .block {
@@ -375,7 +375,7 @@ button:hover {
   height: 500px;
   background: linear-gradient(
 0deg, #000, #272727);
-  z-index: -1;
+z-index: -1;
 }
 
 .block:before,

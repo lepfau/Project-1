@@ -55,10 +55,10 @@ function clear () {
 //FUNCTIONS TO NAVIGATE TROUGH MENUS
 
 function showGame () {
-
   difficulty.style.visibility = "hidden";
   gamePage.style.visibility = "visible";
-  rgbBorder.style.visibility = "hidden"
+  rgbBorder.style.visibility = "hidden";
+  rgbBorder.style.zIndex = "2"
   sample.pause();
   sample2.play();
 }
@@ -439,7 +439,7 @@ function generateZen () {
   const randomFall = fallingClasses[Math.floor(Math.random() * fallingClasses.length)];
 
     fallingWords.innerHTML += `<h2 class="fallingZen" style="left: ${randomPx}px; font-size: ${randomSize}em; color: ${randomColor};">${randomElement}</h2>`
-    timer = setTimeout (setTimer, 1500000)
+    timer = setTimeout (setTimer, 15000)
 
 }
 
@@ -527,11 +527,10 @@ buttonStart.addEventListener('click', () => {
 
 buttonEasy.addEventListener('click', () => {
   showGame();
-okletsgo.play()
+  okletsgo.play()
   setTimeout(() => {
     generateWord()
     getready.style.visibility = "hidden"
-
   }, 3000);
   
 })
