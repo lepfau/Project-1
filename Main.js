@@ -14,6 +14,7 @@ let score = document.querySelector(".scoreSpan")
 let fallingw = document.querySelector(".falling")
 let rgbBorder = document.querySelector(".block")
 let getready = document.querySelector(".getready")
+let fallingcontainer = document.querySelector(".falling_container")
 
 let difficulty = document.querySelector('.difficulty')
 let homePage = document.querySelector('.home')
@@ -45,7 +46,6 @@ function setTimer () {
   explosion.play();
   window.alert(`GAME OVER ! TEXT FELL ON THE GROUND !`)
   location.reload()
-  
 }
 
 function clear () {
@@ -414,7 +414,7 @@ function generateWord () {
   const randomColor = colors[Math.floor(Math.random() * colors.length)];
   const randomFall = fallingClasses[Math.floor(Math.random() * fallingClasses.length)];
 
-    fallingWords.innerHTML += `<h2 class="falling" style="left: ${randomPx}px; font-size: ${randomSize}em; color: ${randomColor};">${randomElement}</h2>`
+    fallingWords.innerHTML += `<div class="falling_container"> <h2 class="falling" style="left: ${randomPx}px; font-size: ${randomSize}em; color: ${randomColor};">${randomElement}</h2> </div>`
     timer = setTimeout (setTimer, 5000)
 
 }
@@ -451,11 +451,12 @@ function matchWords() {
     if (wordInput.value.length < 15) {
       laser.play();
       clear();
-      fallingWords.removeChild(fallingWords.firstElementChild)    
-      generateWord()
+      fallingWords.removeChild(fallingWords.firstElementChild);
+
       wordInput.value = ""
+      generateWord()
       addScore();
-      addWordsCount ();
+      addWordsCount();
     }
 
     else {
